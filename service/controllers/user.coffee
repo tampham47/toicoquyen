@@ -7,15 +7,15 @@ create = (req, res) ->
   # data = req.body
   console.log 'controller/create'
   model =
-    FullName: 'Tam Pham'
-    Email: 'tampham' + Moment().unix() + '@live.com'
-    PaypalAccount: 'tampham' + Moment().unix() + '@live.com'
-    PayzaAccount: 'tampham' + Moment().unix() + '@live.com'
-    Bio: 'Tam Pham'
-    InvoiceTo: 'Tam Pham'
-    SocialProfiles: 'Tam Pham'
-    PrivacySettings: 'Tam Pham'
-    Level: 'Tam Pham'
+    FullName: 'Tan Nguyen'
+    Email: 'Tan Nguyen' + Moment().unix() + '@live.com'
+    PaypalAccount: 'Tan Nguyen' + Moment().unix() + '@live.com'
+    PayzaAccount: 'Tan Nguyen' + Moment().unix() + '@live.com'
+    Bio: 'Tan Nguyen'
+    InvoiceTo: 'Tan Nguyen'
+    SocialProfiles: 'Tan Nguyen'
+    PrivacySettings: 'Tan Nguyen'
+    Level: 'Tan Nguyen'
     Balance: 0
   console.log 'model', model
 
@@ -33,3 +33,4 @@ getAll = (req, res) ->
 module.exports = (app) ->
   app.get '/user/create', create
   app.get '/user/getAll', getAll
+
