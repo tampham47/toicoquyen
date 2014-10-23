@@ -6,5 +6,5 @@ angular.module 'site', [
   'ngSanitize'
 
   'site.templates'
-  'site.page'
+  'site.home'
 ]

@@ -6,21 +6,69 @@ html(class='no-js', lang='en', ng-app='site')
   head
     meta(charset='utf-8')
     //[if IE]><meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'><![endif]
-    title Ok1Dollar
+    title VN Petitions
     meta(name='description', content='')
     meta(name='keywords', content='')
     meta(name='robots', content='index, follow')
     meta(name='author', content='')
     meta(name='viewport', content='width=device-width, initial-scale=1')
 
-    link(rel='stylesheet', href='/packages/bootstrap/dist/css/bootstrap.css')
+    link(rel='stylesheet', href='/packages/bootstrap/dist/css/bootstrap.min.css')
     link(rel="stylesheet", href="css/style.css")
     script(src='js/modernizr.js')
   body
-    include modules/header
-    .container
-      ng-view
-    include modules/footer
+    div.row.clearfix
+      div.col-md-12.column
+        nav.navbar.navbar-default.navbar-fixed-top(role='navigation')
+          div.navbar-header(style='margin-left:14px')
+            button.navbar-toggle(type='button', data-toggle='collapse', data-target='#bs-example-navbar-collapse-1')
+              span.sr-only Toggle navigation
+              span.icon-bar
+              span.icon-bar
+              span.icon-bar
+            a.navbar-brand(href='/#/', style='color:#a0f900')
+              | VN Petitions
+
+          //- div#bs-example-navbar-collapse-1.collapse.navbar-collapse
+            ul.nav.navbar-nav
+              li
+                a(ng-href='#/booking')
+                  b ĐẶT VÉ
+              li
+                a(ng-if='user.role == "admin"',
+                  ng-href='#/car') Chuyến Xe
+              li
+                a(ng-if='user.role == "admin"',
+                  ng-href='#/emp') Nhân viên
+              li
+                a(ng-if='user.role == "admin"',
+                  ng-href='#/route') Tuyến
+              li
+                a(ng-if='user.role == "admin"',
+                  ng-href='#/setting') Cài đặt
+
+
+            ul.nav.navbar-nav.navbar-right(style='padding-right:40px')
+              li.dropdown
+                a.dropdown-toggle(href='#', data-toggle='dropdown')
+                  | {{user.full_name || user.username}}
+                  b.caret
+                ul.dropdown-menu
+                  //- li
+                  //-   a(href='#') Thông tin tài khoản
+                  //- li
+                  //-   a(href='#') Quản lý bài viết
+                  //- li
+                  //-   a(href='#') Quản lý profile
+                  //- li.divider
+                  li
+                    a(href='#', ng-click='logout()') Đăng xuất
+
+    div(ng-view, style='margin-top:60px')
+
+    .row(style='margin-top:60px; margin-bottom:50px')
+      .col-md-12
+        label.label.label-success #youthstudios
 
     script(src='js/l10n.js')
     script(src='js/libs.js')
