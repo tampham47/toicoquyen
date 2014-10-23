@@ -29,29 +29,19 @@ html(class='no-js', lang='en', ng-app='site')
             a.navbar-brand(href='/#/', style='color:#a0f900')
               | VN Petitions
 
-          //- div#bs-example-navbar-collapse-1.collapse.navbar-collapse
-            ul.nav.navbar-nav
+          div#bs-example-navbar-collapse-1.collapse.navbar-collapse
+            ul.nav.navbar-nav.pull-right
               li
                 a(ng-href='#/booking')
-                  b ĐẶT VÉ
+                  b ĐĂNG QUAN ĐIỂM
               li
-                a(ng-if='user.role == "admin"',
-                  ng-href='#/car') Chuyến Xe
-              li
-                a(ng-if='user.role == "admin"',
-                  ng-href='#/emp') Nhân viên
-              li
-                a(ng-if='user.role == "admin"',
-                  ng-href='#/route') Tuyến
-              li
-                a(ng-if='user.role == "admin"',
-                  ng-href='#/setting') Cài đặt
+                a(ng-href='#/booking')
+                  b ĐĂNG NHẬP
 
-
-            ul.nav.navbar-nav.navbar-right(style='padding-right:40px')
+            //- ul.nav.navbar-nav.navbar-right.pull-right(style='padding-right:40px')
               li.dropdown
                 a.dropdown-toggle(href='#', data-toggle='dropdown')
-                  | {{user.full_name || user.username}}
+                  | Tâm Phạm
                   b.caret
                 ul.dropdown-menu
                   //- li
@@ -68,7 +58,7 @@ html(class='no-js', lang='en', ng-app='site')
 
     .row(style='margin-top:60px; margin-bottom:50px')
       .col-md-12
-        label.label.label-success #youthstudios
+        label.label.label-success #Youthstudios
 
     script(src='js/l10n.js')
     script(src='js/libs.js')
