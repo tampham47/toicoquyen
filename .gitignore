@@ -1,0 +1,6 @@
+portal/bower_components
+portal/node_modules
+portal/public
+
+service/node_modules
+service/bower_components

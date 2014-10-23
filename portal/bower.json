@@ -1,0 +1,15 @@
+{
+  "name": "ok1dollar",
+  "version": "0.0.1",
+  "dependencies": {
+    "angular": "~1.2.16",
+    "angular-route": "1.2.16",
+    "angular-animate": "~1.2.16",
+    "angular-sanitize": "~1.2.16",
+    "angular-local-storage": "*",
+
+    "bootstrap": "*",
+    "jquery": "~1.11.0",
+    "modernizr": "~2.8.2"
+  }
+}
