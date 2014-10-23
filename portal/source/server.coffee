@@ -4,7 +4,7 @@ path = require('path')
 app = express()
 
 # Default configuration
-app.set 'port', process.env.PORT or 3000
+app.set 'port', process.env.PORT or 3010
 app.set 'views', path.join(__dirname, '/views')
 app.set 'view engine', 'jade'
 app.use express.favicon(path.join(__dirname, '../public/favicon.ico'))
