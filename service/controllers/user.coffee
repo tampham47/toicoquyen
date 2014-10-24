@@ -30,7 +30,16 @@ getAll = (req, res) ->
   , (err) ->
     res.send err
 
+deleteById = (req, res) ->
+  console.log req
+  id = req.query.id
+  User.deleteById(id).then (data) ->
+    res.send 'ok'
+  , (err) ->
+    res.send err
+
 module.exports = (app) ->
   app.get '/user/create', create
   app.get '/user/getAll', getAll
+  app.get '/user/deleteById', deleteById
 

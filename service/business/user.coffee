@@ -15,7 +15,10 @@ getById = (id) ->
 getAll = ->
   UserModel.find({}).exec()
 
+deleteById = (id) ->
+  UserModel.remove({_id: id}).exec()
+
 
 module.exports = {
-  create, update, getById, getAll
+  create, update, getById, getAll, deleteById
 }
