@@ -23,7 +23,7 @@ passport.use User.createStrategy()
 passport.serializeUser User.serializeUser()
 passport.deserializeUser User.deserializeUser()
 
-mongoose.connect 'mongodb://localhost/ok1dollar'
+mongoose.connect 'mongodb://localhost/vnpetitions'
 
 app.listen 3000
 console.log 'Listening on port 3000...'

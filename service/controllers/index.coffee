@@ -13,5 +13,4 @@ module.exports = (app) ->
   app.all '*', allowCors
 
   require('./user')(app)
-  # require('./comment')(app)
 
