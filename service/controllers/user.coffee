@@ -22,10 +22,13 @@ update = (req, res) ->
   , (err) ->
     res.send {err: err}
 
+<<<<<<< HEAD
+=======
 ##
 remove = (req, res) ->
   res.send 'ok'
 
+>>>>>>> eec96c7a6489d763ceccb70c6bf097586dbb99d8
 # Tham khao user - juddy
 getById = (req, res) ->
   _user = req.query._user
