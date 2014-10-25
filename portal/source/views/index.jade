@@ -14,6 +14,11 @@ html(class='no-js', lang='en', ng-app='site')
     meta(name='viewport', content='width=device-width, initial-scale=1')
 
     link(rel='stylesheet', href='/packages/bootstrap/dist/css/bootstrap.min.css')
+
+    //- medium-editor
+    link(rel='stylesheet', href='/packages/medium-editor/dist/css/medium-editor.css')
+    link(rel='stylesheet', href='/packages/medium-editor/dist/css/themes/default.css')
+
     link(rel="stylesheet", href="css/style.css")
     script(src='js/modernizr.js')
   body
@@ -32,10 +37,10 @@ html(class='no-js', lang='en', ng-app='site')
           div#bs-example-navbar-collapse-1.collapse.navbar-collapse
             ul.nav.navbar-nav.pull-right
               li
-                a(ng-href='#/booking')
+                a(ng-href='#/petition/new')
                   b ĐĂNG QUAN ĐIỂM
               li
-                a(ng-href='#/booking')
+                a(ng-href='#/login')
                   b ĐĂNG NHẬP
 
             //- ul.nav.navbar-nav.navbar-right.pull-right(style='padding-right:40px')
@@ -54,7 +59,7 @@ html(class='no-js', lang='en', ng-app='site')
                   li
                     a(href='#', ng-click='logout()') Đăng xuất
 
-    div(ng-view, style='margin-top:60px')
+    div(ng-view, style='margin-top:80px')
 
     .row(style='margin-top:60px; margin-bottom:50px')
       .col-md-12
@@ -62,6 +67,8 @@ html(class='no-js', lang='en', ng-app='site')
 
     script(src='js/l10n.js')
     script(src='js/libs.js')
+
+    script(src='/packages/medium-editor/dist/js/medium-editor.js')
     script(src='/packages/bootstrap/dist/js/bootstrap.js')
 
     script(src='js/plugins.js')

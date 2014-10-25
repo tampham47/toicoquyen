@@ -1,0 +1,24 @@
+.row
+  .col-md-7.col-md-offset-1
+    .page-header(style='margin-top:0px')
+      h2 Đăng bài viết
+
+    .post
+      form.form(role='form', method='post')
+        .form-group
+          label(for='exampleInputEmail1') Tên bài viết
+          input#exampleInputEmail1.form-control(type='text', ng-model='post.title')
+        .form-group(style='margin-top:20px')
+          label(for='exampleInputEmail1') Nội dung
+          div.textarea(ng-model='post.content', ng-meditor, style='min-height:200px')
+
+        .form-group
+          button.btn.btn-success(ng-click='newPetition()')
+            i.glyphicon.glyphicon-plus
+            | Đăng bài viết
+
+          //- a.btn.btn-default(href='#/petition')
+            i.glyphicon.glyphicon-remove
+            | Hủy
+
+  .col-md-3

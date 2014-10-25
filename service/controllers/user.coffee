@@ -20,6 +20,13 @@ update = (req, res) ->
   , (err) ->
     res.send {err: err}
 
+<<<<<<< HEAD
+=======
+##
+remove = (req, res) ->
+  res.send 'ok'
+
+>>>>>>> eec96c7a6489d763ceccb70c6bf097586dbb99d8
 # Tham khao user - juddy
 getById = (req, res) ->
   _user = req.query._user
@@ -48,8 +55,5 @@ module.exports = (app) ->
   app.get '/user/remove', remove    # 25/10/2014
   app.get '/user/getById', getById  # 25/10/2014
   app.get '/user/getAll', getAll
-<<<<<<< HEAD
-=======
   app.get '/user/deleteById', deleteById
 
->>>>>>> 084167d35349f5307f0e3ec6beef8330b33d427a

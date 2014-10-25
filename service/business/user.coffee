@@ -24,9 +24,5 @@ deleteById = (id) ->
 
 
 module.exports = {
-<<<<<<< HEAD
-  create, update, remove, getById, getAll
-=======
-  create, update, getById, getAll, deleteById
->>>>>>> 084167d35349f5307f0e3ec6beef8330b33d427a
+  create, update, remove, getById, getAll, deleteById
 }
