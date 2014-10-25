@@ -6,6 +6,8 @@ Moment = require 'moment'
 ##
 create = (req, res) ->
   data = req.body
+  console.log 'create'
+  console.log data
 
   User.create(data).then (data) ->
     res.send data
@@ -33,6 +35,7 @@ getById = (req, res) ->
     res.send {err: err}
 
 getAll = (req, res) ->
+  console.log 'getAll'
   User.getAll().then (data) ->
     res.send data
   , (err) ->

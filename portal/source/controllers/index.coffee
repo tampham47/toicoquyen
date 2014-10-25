@@ -8,4 +8,5 @@ angular.module 'site', [
   'site.templates'
   'site.home'
   'site.petition'
+  'site.user'
 ]
