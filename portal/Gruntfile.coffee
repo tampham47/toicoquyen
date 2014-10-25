@@ -42,7 +42,11 @@ module.exports = (grunt) ->
       all:
         expand: true
         cwd: 'source/'
-        src: ['controllers/**/*.coffee', 'models/**/*.coffee']
+        src: [
+          'controllers/**/*.coffee',
+          'directives/**/*.coffee',
+          'interfaces/**/*.coffee',
+          'models/**/*.coffee']
         dest: 'public/'
         ext: '.js'
 
@@ -99,6 +103,8 @@ module.exports = (grunt) ->
           'public/js/scripts.js': [
             'public/controllers/**/index.js' #the order is very important
             'public/controllers/**/*.js'
+            'public/directives/**/*.js'
+            'public/interfaces/**/*.js'
             'public/models/**/*.js'
           ]
         ]
