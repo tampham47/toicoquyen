@@ -10,18 +10,21 @@ angular.module('site.user', [])
   console.log 'UserCtrl'
   $scope.page = 'User Page'
 
+  generateUUID = ->
+    d = new Date().getTime()
+    # uuid = "xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx".replace(/[xy]/g, (c) ->
+    uuid = 'xxxx'.replace(/[xy]/g, (c) ->
+      r = (d + Math.random() * 16) % 16 | 0
+      d = Math.floor(d / 16)
+      ((if c is 'x' then r else (r & 0x7 | 0x8))).toString 16
+    )
+    uuid
+
   $scope.create = ->
     model =
-      FullName: 'Tam Pham'
-      # Email: 'tampham' + Moment().unix() + '@live.com'
-      # PaypalAccount: 'tampham' + Moment().unix() + '@live.com'
-      # PayzaAccount: 'tampham' + Moment().unix() + '@live.com'
-      Bio: 'Tam Pham'
-      InvoiceTo: 'Tam Pham'
-      SocialProfiles: 'Tam Pham'
-      PrivacySettings: 'Tam Pham'
-      Level: 'Tam Pham'
-      Balance: 0
+      FullName: 'Tam Pham ' + generateUUID()
+      Email: 'tampham' + generateUUID() + '@live.com'
+
     User.create(model).$promise.then (data) ->
       console.log 'create'
       console.log data

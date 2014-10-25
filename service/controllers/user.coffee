@@ -5,7 +5,7 @@ Moment = require 'moment'
 
 ##
 create = (req, res) ->
-  data = req.body
+  data = req.query
   console.log 'create'
   console.log data
 
