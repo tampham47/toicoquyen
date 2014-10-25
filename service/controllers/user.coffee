@@ -20,10 +20,6 @@ update = (req, res) ->
   , (err) ->
     res.send {err: err}
 
-##
-remove = (req, res) ->
-
-
 # Tham khao user - juddy
 getById = (req, res) ->
   _user = req.query._user
