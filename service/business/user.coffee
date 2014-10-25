@@ -6,10 +6,14 @@ create = (data) ->
   # create function always return a promise
   UserModel.create(data)
 
-update = (id, data) ->
-  UserModel.findByIdAndUpdate(id, data).exec()
+update = (_id, data) ->
+  UserModel.findByIdAndUpdate(_id, data).exec()
 
-getById = (id) ->
+# 24/10/2014
+remove = (_id, data) ->
+  UserModel.findByIdAndRemove(_id, data).exec()
+
+getById = (_id) ->
   UserModel.getById(id).exec()
 
 getAll = ->
@@ -20,5 +24,9 @@ deleteById = (id) ->
 
 
 module.exports = {
+<<<<<<< HEAD
+  create, update, remove, getById, getAll
+=======
   create, update, getById, getAll, deleteById
+>>>>>>> 084167d35349f5307f0e3ec6beef8330b33d427a
 }

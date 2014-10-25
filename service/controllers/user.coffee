@@ -3,26 +3,34 @@
 User = require '../business/user'
 Moment = require 'moment'
 
+##
 create = (req, res) ->
-  # data = req.body
-  console.log 'controller/create'
-  model =
-    FullName: 'Tan Nguyen'
-    Email: 'Tan Nguyen' + Moment().unix() + '@live.com'
-    PaypalAccount: 'Tan Nguyen' + Moment().unix() + '@live.com'
-    PayzaAccount: 'Tan Nguyen' + Moment().unix() + '@live.com'
-    Bio: 'Tan Nguyen'
-    InvoiceTo: 'Tan Nguyen'
-    SocialProfiles: 'Tan Nguyen'
-    PrivacySettings: 'Tan Nguyen'
-    Level: 'Tan Nguyen'
-    Balance: 0
-  console.log 'model', model
+  data = req.body
 
-  User.create(model).then (data) ->
+  User.create(data).then (data) ->
     res.send data
   , (err) ->
     res.send err
+
+##
+update = (req, res) ->
+  data = req.body
+  User.Update(data._id, data).than (data) ->
+    res.send {data: data}
+  , (err) ->
+    res.send {err: err}
+
+##
+remove = (req, res) ->
+
+
+# Tham khao user - juddy
+getById = (req, res) ->
+  _user = req.query._user
+  user.getById(_user).then (data) ->
+    res.send {data: data}
+  , (err) ->
+    res.send {err: err}
 
 getAll = (req, res) ->
   User.getAll().then (data) ->
@@ -40,6 +48,12 @@ deleteById = (req, res) ->
 
 module.exports = (app) ->
   app.get '/user/create', create
+  app.get '/user/update', update    # 25/10/2014
+  app.get '/user/remove', remove    # 25/10/2014
+  app.get '/user/getById', getById  # 25/10/2014
   app.get '/user/getAll', getAll
+<<<<<<< HEAD
+=======
   app.get '/user/deleteById', deleteById
 
+>>>>>>> 084167d35349f5307f0e3ec6beef8330b33d427a
