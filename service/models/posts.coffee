@@ -14,56 +14,14 @@ PostsSchema = new Schema
 
   Title:
     type: String
-    # require: true
+    require: true
 
   Content:
     type: String
-    # require: true
-
-  Price:
-    type: Number
-
-  Discount:
-    Price:
-      type: Number
-    StartDate:
-      type: Date
-      default: new Date
-    EndDate:
-      type: Date
-      default: new Date
-
-  CategoryId:
-    type: Schema.Types.ObjectId
-    ref: 'Categories'
     require: true
-
-  Type:
-    type: String
 
   CreatedDate:
     type: Date
     default: new Date
-
-  ExpectedDelivery:
-    type: Number
-
-  AverageDelivery:
-    type: Number
-
-  ResponseTime:
-    type: Number
-
-  OrdersInProgress:
-    type: Number
-
-  NumRecommendations:
-    type: Number
-
-  NumNegatives:
-    type: Number
-
-  NumPositives:
-    type: Number
 
 module.exports = mongooes.model 'Posts', PostsSchema

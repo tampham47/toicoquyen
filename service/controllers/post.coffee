@@ -1,16 +1,15 @@
 'use strict'
 
-User = require '../business/user'
+Post = require '../business/post'
 Moment = require 'moment'
 
 create = (req, res) ->
   #data = req.body
   model =
-    FullName: 'Tan Nguyen'
-    Email: 'tannd1993' + Moment().unix() + '@gmail.com'
-    Level: Moment().unix()
+    Title: 'This is title - ' + Moment.unix();
+    Content: 'This is content - ' + Moment().unix()
 
-  User.create(model).then (data) ->
+  Post.create(model).then (data) ->
     res.send data
   , (err) ->
     res.send err

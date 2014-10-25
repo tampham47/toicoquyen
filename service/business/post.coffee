@@ -1,22 +1,22 @@
 'use strict'
 
-UserModel = require '../models/users'
+PostModel = require '../models/posts'
 
 create = (data) ->
   # create function always return a promise
-  UserModel.create(data)
+  PostModel.create(data)
 
 update = (id, data) ->
-  UserModel.findByIdAndUpdate(id, data).exec()
+  PostModel.findByIdAndUpdate(id, data).exec()
 
 deleteById = (id) ->
-  UserModel.remove({_id: id}).exec()
+  PostModel.remove({_id: id}).exec()
 
 getById = (id) ->
-  UserModel.getById(id).exec()
+  PostModel.getById(id).exec()
 
 getAll = ->
-  UserModel.find({}).exec()
+  PostModel.find({}).exec()
 
 module.exports = {
   create, update, getById, getAll, deleteById
