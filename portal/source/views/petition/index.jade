@@ -1,80 +1,43 @@
 .row
-  .col-md-7.col-md-offset-1
-    .page-header(style='margin-top:0px')
-      h2 Danh sách bài viết
-        a.btn.btn-success.pull-right(href='#/petition/new')
-          i.glyphicon.glyphicon-plus
-          | Tạo mới
-        //- button.btn.btn-link.pull-right(ng-click='search_panel()')
-          i.glyphicon.glyphicon-search
-
-    //- form.form-horizontal#search-panel(style='display:none')
-      // Button Drop Down
-      .form-group
-        label.col-md-3.control-label(for='buttondropdown') Người dùng
-        .col-md-9
-          input#buttondropdown.form-control.input-md(name='searchinput', type='search', placeholder='placeholder')
-
-      // Search input
-      .form-group
-        label.col-md-3.control-label(for='searchinput') Từ khóa
-        .col-md-9
-          input#searchinput.form-control.input-md(name='searchinput', type='search', placeholder='placeholder')
-
-      // Button (Double)
-      .form-group
-        label.col-md-3.control-label(for='button1id')
-        .col-md-9
-          button#button2id.btn.btn-primary.pull-right(name='button2id') Tìm kiếm
-          button#button1id.btn.btn-link.pull-right(name='button1id', ng-click='search_panel()') Hủy
-
-
+  .col-md-6.col-md-offset-3
     .media
       //- a.pull-left(href='#/blog/detail/{{post._id}}')
         img.img-rounded.media-object(width='100', height='100',
           src='../bower_components/_images/blog_default.jpg', alt='...')
       .media-body
-        h4.media-heading
-          a(href='#/blog/detail/{{post._id}}')
+        h2.media-heading
+          a(href='#')
             | Đức và những vấn đề giáo dục
           br
           small Phạm Minh Tâm - Oct 25th
         p
           | Một báo cáo từ Hàn Quốc cho biết Samsung đã bán được 4,5 triệu chiếc Galaxy Note 4 trong tháng đầu tiên ra mắt . Đây là con số khá ấn tượng nhưng nó vẫn thua Note 3 đến 500 ngàn chiếc được bán ra ở tháng thứ nhất. Với doanh số Note 4 cải lùi như vậy khó đoán trước doanh thu quý tiếp theo của Samsung ra sao khi nó đã trải qua 3 quý ảm đạm. Dĩ nhiên, doanh thu và lợi nhuận của hãng không đến riêng...
+      div.pull-right
+        .btn.btn-success.btn-sm 500
+        .btn.btn-default.btn-sm Sign
 
-    //- .media(ng-repeat='post in model.data')
-      a.pull-left(href='#/blog/detail/{{post._id}}')
-        img.img-rounded.media-object(width='100', height='100',
-          src='../bower_components/_images/blog_default.jpg', alt='...')
+    .media
       .media-body
-        h4.media-heading
-          a(href='#/blog/detail/{{post._id}}')
-            | {{post.title}}
+        h2.media-heading
+          a(href='#')
+            | Đức và những vấn đề giáo dục
           br
-          small Phạm Minh Tâm - {{post.modified | date:'MM/dd/yyyy @ h:mma'}}
+          small Phạm Minh Tâm - Oct 25th
         p
-          | {{post.content | truncate:150}}
+          | Một báo cáo từ Hàn Quốc cho biết Samsung đã bán được 4,5 triệu chiếc Galaxy Note 4 trong tháng đầu tiên ra mắt . Đây là con số khá ấn tượng nhưng nó vẫn thua Note 3 đến 500 ngàn chiếc được bán ra ở tháng thứ nhất. Với doanh số Note 4 cải lùi như vậy khó đoán trước doanh thu quý tiếp theo của Samsung ra sao khi nó đã trải qua 3 quý ảm đạm. Dĩ nhiên, doanh thu và lợi nhuận của hãng không đến riêng...
+      div.pull-right
+        .btn.btn-success.btn-sm 40
+        .btn.btn-default.btn-sm Sign
 
-    //- center(style='margin-top:20px')
-      div.btn-group.btn-group-justified(style='width:220px')
-        div.btn-group
-          button.btn.btn-default(type='button', ng-click='prev_page()', ng-if='current_page > 0')
-            i.glyphicon.glyphicon-chevron-left
-            | trang trước
-          button.btn.btn-default(type='button', ng-if='current_page <= 0', disabled='disabled')
-            i.glyphicon.glyphicon-chevron-left
-            | trang trước
-
-        div.btn-group
-          button.btn.btn-default(type='button', ng-click='next_page()', ng-if='is_next_page() == true')
-            | trang sau
-            i.glyphicon.glyphicon-chevron-right
-          button.btn.btn-default(type='button', ng-if='is_next_page() == false', disabled='disabled')
-            | trang sau
-            i.glyphicon.glyphicon-chevron-right
-
-  //- .col-md-3
-    .page-header(style='margin-top:0px')
-      h3 nổi bật
-    h4
-      label.label.label-success Nổi bật
+    .media
+      .media-body
+        h2.media-heading
+          a(href='#')
+            | Đức và những vấn đề giáo dục
+          br
+          small Phạm Minh Tâm - Oct 25th
+        p
+          | Một báo cáo từ Hàn Quốc cho biết Samsung đã bán được 4,5 triệu chiếc Galaxy Note 4 trong tháng đầu tiên ra mắt . Đây là con số khá ấn tượng nhưng nó vẫn thua Note 3 đến 500 ngàn chiếc được bán ra ở tháng thứ nhất. Với doanh số Note 4 cải lùi như vậy khó đoán trước doanh thu quý tiếp theo của Samsung ra sao khi nó đã trải qua 3 quý ảm đạm. Dĩ nhiên, doanh thu và lợi nhuận của hãng không đến riêng...
+      div.pull-right
+        .btn.btn-success.btn-sm 40
+        .btn.btn-default.btn-sm Sign
