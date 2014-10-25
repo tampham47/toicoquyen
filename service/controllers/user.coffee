@@ -22,7 +22,7 @@ update = (req, res) ->
 
 ##
 remove = (req, res) ->
-
+  res.send 'ok'
 
 # Tham khao user - juddy
 getById = (req, res) ->
@@ -52,8 +52,5 @@ module.exports = (app) ->
   app.get '/user/remove', remove    # 25/10/2014
   app.get '/user/getById', getById  # 25/10/2014
   app.get '/user/getAll', getAll
-<<<<<<< HEAD
-=======
   app.get '/user/deleteById', deleteById
 
->>>>>>> 084167d35349f5307f0e3ec6beef8330b33d427a
