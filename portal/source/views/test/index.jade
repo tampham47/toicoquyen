@@ -1,0 +1,14 @@
+div.container
+  div.row.clearfix
+    div.col-md-6.column.off-set-3
+      form(role='form')
+        div.form-group
+          label(for='Service') Service
+          input#Service.form-control(type='text', ng-model='url')
+        div.form-group
+          label(for='Method') Method
+          input#Method.form-control(type='text', ng-model='method')
+        div.form-group
+          label(for='Data') Data
+          textarea#Data.form-control(type='text', ng-model='data')
+        button.btn.btn-default(type='submit', ng-click='submit()') Submit
