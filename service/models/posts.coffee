@@ -24,4 +24,4 @@ PostsSchema = new Schema
     type: Date
     default: new Date
 
-module.exports = mongooes.model 'Posts', PostsSchema
+module.exports = mongooes.model 'Post', PostsSchema

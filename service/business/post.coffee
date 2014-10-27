@@ -19,5 +19,5 @@ getAll = ->
   PostModel.find({}).exec()
 
 module.exports = {
-  create, update, getById, getAll, deleteById
+  create, update, deleteById, getById, getAll
 }

@@ -6,45 +6,48 @@ Moment = require 'moment'
 create = (req, res) ->
   #data = req.body
   model =
-    Title: 'This is title - ' + Moment.unix();
+    UserId: '544b4c5d0b741dd41227844d'
+    Title: 'This is title - ' + Moment.unix()
     Content: 'This is content - ' + Moment().unix()
 
-  Post.create(model).then (data) ->
+  console.log model
+
+  Post.create(model).then (data)->
     res.send data
   , (err) ->
-    res.send err
+    res.send { err: err }
 
-update = (req, res) ->
-  data = req.body
-  User.Update(data._id, data).than (data) ->
-    res.send {data: data}
-  , (err) ->
-    res.send {err: err}
+# update = (req, res) ->
+#   d = req.body
+#   Post.Update(d._id, d).than (data) ->
+#     res.send {data: data}
+#   , (err) ->
+#     res.send {err: err}
 
-deleteById = (req, res) ->
-  console.log req
-  id = req.query.id
-  User.deleteById(id).then (data) ->
-    res.send 'ok'
-  , (err) ->
-    res.send err
+# deleteById = (req, res) ->
+#   console.log req
+#   id = req.query.id
+#   Post.deleteById(id).then (data) ->
+#     res.send 'Ok'
+#   , (err) ->
+#     res.send err
 
-getById = (req, res) ->
-  _user = req.query._user
-  user.getById(_user).then (data) ->
-    res.send {data: data}
-  , (err) ->
-    res.send {err: err}
+# getById = (req, res) ->
+#   _post = req.query._post
+#   post.getById(_post).then (data) ->
+#     res.send {data: data}
+#   , (err) ->
+#     res.send {err: err}
 
-getAll = (req, res) ->
-  User.getAll().then (data) ->
-    res.send data
-  , (err) ->
-    res.send err
+# getAll = (req, res) ->
+#   Post.getAll().then (data) ->
+#     res.send data
+#   , (err) ->
+#     res.send err
 
 module.exports = (app) ->
-  app.get '/user/create', create
-  app.get '/user/update', update
-  app.get '/user/deleteById', deleteById
-  app.get '/user/getById', getById
-  app.get '/user/getAll', getAll
+  app.get '/post/create', create
+  # app.get '/post/update', update
+  # app.get '/post/deleteById', deleteById
+  # app.get '/post/getById', getById
+  # app.get '/post/getAll', getAll
