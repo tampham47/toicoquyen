@@ -2,7 +2,7 @@
 
 angular.module('site.petition', [])
 .config ($routeProvider) ->
-  $routeProvider.when '/petition',
+  $routeProvider.when '/',
     controller: 'PetitionCtrl'
     templateUrl: 'views/petition/index.jade'
 

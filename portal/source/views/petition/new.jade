@@ -1,20 +1,29 @@
 .row
-  .col-md-7.col-md-offset-1
+  .col-md-6.col-md-offset-3
     .page-header(style='margin-top:0px')
-      h2 Đăng bài viết
+      h2 Start a petition
 
     .post
       form.form(role='form', method='post')
         .form-group
-          label(for='exampleInputEmail1') Tên bài viết
+          label(for='exampleInputEmail1') Tên tổ chức/cá nhân mà bạn muốn gởi thỉnh nguyện
           input#exampleInputEmail1.form-control(type='text', ng-model='post.title')
-        .form-group(style='margin-top:20px')
-          label(for='exampleInputEmail1') Nội dung
-          div.textarea(ng-model='post.content', ng-meditor, style='min-height:200px')
+          p.help-block A petition is a public message to one or more decision makers, asking them to do something. Name the person or group who should receive your petition. Later, you’ll be able to add their contact info so they are notified when people sign.
 
         .form-group
-          button.btn.btn-success(ng-click='newPetition()')
-            i.glyphicon.glyphicon-plus
+          label(for='exampleInputEmail1') Bạn muốn họ làm gì?
+          input#exampleInputEmail1.form-control(type='text', ng-model='post.title')
+          p.help-block Ask your petition’s decision maker to do something, as if you were speaking to them directly. For example, “Pay your workers overtime”.
+
+        .form-group(style='margin-top:20px')
+          label(for='exampleInputEmail1') Tại sao vấn đề này lại quan trọng?
+          //- div.textarea(ng-model='post.content', ng-meditor, style='min-height:200px')
+          textarea.form-control(ng-model='post.content', style='min-height:100px')
+          p.help-block Explain why people should support your petition, why you started it, and how it can make a difference
+
+        .form-group
+          button.btn.btn-success.pull-right(ng-click='newPetition()')
+            //- i.glyphicon.glyphicon-plus
             | Đăng bài viết
 
           //- a.btn.btn-default(href='#/petition')

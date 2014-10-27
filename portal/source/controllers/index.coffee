@@ -9,4 +9,5 @@ angular.module 'site', [
   'site.home'
   'site.petition'
   'site.user'
+  'site.test'
 ]

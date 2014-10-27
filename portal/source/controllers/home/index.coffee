@@ -2,7 +2,7 @@
 
 angular.module('site.home', [])
 .config ($routeProvider) ->
-  $routeProvider.when '/',
+  $routeProvider.when '/home',
     controller: 'HomeCtrl'
     templateUrl: 'views/home/index.jade'
 

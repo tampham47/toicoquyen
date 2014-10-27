@@ -103,9 +103,9 @@ module.exports = (grunt) ->
           'public/js/scripts.js': [
             'public/controllers/**/index.js' #the order is very important
             'public/controllers/**/*.js'
+            'public/commons/**/*.js'
             'public/directives/**/*.js'
             'public/interfaces/**/*.js'
-            'public/models/**/*.js'
           ]
         ]
 
