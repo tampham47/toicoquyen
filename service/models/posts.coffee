@@ -20,8 +20,19 @@ PostsSchema = new Schema
     type: String
     require: true
 
+  # Số lượng bình chọn
+  NumOfVote:
+    type: Number
+    default: 0
+
   CreatedDate:
     type: Date
     default: new Date
+
+userSchema.virtual('PostId').get ->
+  return @_id
+
+userSchema.set 'toJSON',
+  virtuals: true
 
 module.exports = mongooes.model 'Post', PostsSchema

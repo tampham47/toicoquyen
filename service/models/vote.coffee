@@ -10,11 +10,6 @@ VoteSchame = new Schema
     ref: 'User'
     require: true
 
-  # Số lượng bình chọn
-  NumOfVote:
-    type: Number
-    default: 0
-
   VotedDate:
     type: Date
     default: new Date

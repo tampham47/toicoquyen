@@ -4,6 +4,7 @@ UserModel = require '../models/users'
 
 create = (data) ->
   # create function always return a promise
+  # UserModel.find({_id: data.UserId, xxx: data.PostId})
   UserModel.create(data)
 
 update = (id, data) ->
