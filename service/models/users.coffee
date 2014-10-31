@@ -5,7 +5,7 @@ passportLocal = require 'passport-local-mongoose'
 
 Schema = mongooes.Schema
 
-userSchema = new Schema
+UserSchema = new Schema
   # Mongoose auto create a primary key for you, _id
   # I will customize this name latter
 
@@ -17,25 +17,19 @@ userSchema = new Schema
     type: String
     unique: true
 
-  SocialProfiles:
+  AvatarPath:
     type: String
 
-  PrivacySettings:
-    type: String
-
-  JoinedDate:
+  CreatedDate:
     type: Date
     default: new Date
 
-  Level:
-    type: String
-
-userSchema.virtual('UserId').get ->
+UserSchema.virtual('UserId').get ->
   return @_id
 
-userSchema.set 'toJSON',
+UserSchema.set 'toJSON',
   virtuals: true
 
-userSchema.plugin passportLocal
+UserSchema.plugin passportLocal
 
-module.exports = mongooes.model 'User', userSchema
+module.exports = mongooes.model 'User', UserSchema

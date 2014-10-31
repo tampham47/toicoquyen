@@ -14,7 +14,7 @@ create = (req, res) ->
 
 update = (req, res) ->
   d = req.body
-  Post.Update(d._id, d).than (data) ->
+  Post.Update(d.PostId, d).than (data) ->
     res.send {data: data}
   , (err) ->
     res.send {err: err}
@@ -28,8 +28,8 @@ deleteById = (req, res) ->
     res.send {err: err}
 
 getById = (req, res) ->
-  _post = req.query._post
-  post.getById(_post).then (data) ->
+  postId = req.query.postId
+  post.getById(postId).then (data) ->
     res.send {data: data}
   , (err) ->
     res.send {err: err}

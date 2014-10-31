@@ -16,7 +16,7 @@ getById = (id) ->
   PostModel.getById(id).exec()
 
 getAll = ->
-  PostModel.find({}).exec()
+  PostModel.find({}).populate('Creator').exec()
 
 module.exports = {
   create, update, deleteById, getById, getAll
