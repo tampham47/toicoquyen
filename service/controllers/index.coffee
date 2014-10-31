@@ -17,4 +17,6 @@ module.exports = (app) ->
   app.all '*', allowCors
 
   require('./user')(app)
+  require('./post')(app)
+  require('./vote')(app)
 

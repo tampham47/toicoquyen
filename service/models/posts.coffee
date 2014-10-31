@@ -29,10 +29,10 @@ PostsSchema = new Schema
     type: Date
     default: new Date
 
-userSchema.virtual('PostId').get ->
+PostsSchema.virtual('PostId').get ->
   return @_id
 
-userSchema.set 'toJSON',
+PostsSchema.set 'toJSON',
   virtuals: true
 
 module.exports = mongooes.model 'Post', PostsSchema
