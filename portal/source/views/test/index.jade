@@ -1,6 +1,7 @@
+
 div.container
-  div.row.clearfix
-    div.col-md-6.column.off-set-3
+  .row.clearfix
+    .col-md-6.col-md-offset-3
       form(role='form')
         div.form-group
           label(for='Service') Service
@@ -11,4 +12,4 @@ div.container
         div.form-group
           label(for='Data') Data
           textarea#Data.form-control(type='text', ng-model='data')
-        button.btn.btn-default(type='submit', ng-click='submit()') Submit
+        button.btn.btn-default.pull-right(type='submit', ng-click='submit()') Submit

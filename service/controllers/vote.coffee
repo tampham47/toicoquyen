@@ -4,14 +4,13 @@ Vote = require '../business/vote'
 Moment = require 'moment'
 
 create = (req, res) ->
-  model =
-    UserId: '544e56f73a5a1284026d04db'
-    NumOfVote: 1
+  model = req.body
+  console.log 'create', model
 
   Vote.create(model).then (data) ->
-    res.send data
+    res.send {data: data}
   , (err) ->
-    res.send err
+    res.send {err: err}
 
 update = (req, res) ->
   d = req.data
@@ -22,15 +21,15 @@ update = (req, res) ->
 
 deleteById = (req, res) ->
   console.log req
-  id = req.query.id
+  id = req.body.id
   Vote.deleteById(id).then (data) ->
-    res.send 'Ok'
+    res.send {data: data}
   , (err) ->
-    res.send err
+    res.send {err: err}
 
 getById = (req, res) ->
-  _vote = req.query._vote
-  vote.getById(_vote).then (data) ->
+  id = req.query.id
+  vote.getById(id).then (data) ->
     res.send {data: data}
   , (err) ->
     res.send {err: err}
@@ -38,13 +37,13 @@ getById = (req, res) ->
 getAll = (req, res) ->
   console.log 'getAll'
   Vote.getAll().then (data) ->
-    res.send data
+    res.send {data: data}
   , (err) ->
-    res.send err
+    res.send {err: err}
 
 module.exports = (app) ->
-  app.get '/vote/create', create
-  app.get '/vote/update', update
-  app.get '/vote/deleteById', deleteById
+  app.post '/vote/create', create
+  app.post '/vote/update', update
+  app.post '/vote/deleteById', deleteById
   app.get '/vote/getById', getById
   app.get '/vote/getAll', getAll
