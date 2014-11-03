@@ -19,6 +19,12 @@ getById = (id) ->
 getAll = ->
   UserModel.find({}).exec()
 
+# generateHash = (id, password) ->
+#   UserModel.findOne(id).exec()
+
+# validPassword = (id, password) ->
+#   UserModel.findOne(id).exec()
+
 module.exports = {
   create, update, getById, getAll, deleteById
 }
