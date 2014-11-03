@@ -51,6 +51,6 @@ userSchema.set 'toJSON',
 
 userSchema.plugin passportLocal
 
-userSchema.methods passportLocal
+userSchema.methods passportLocal # Thêm để viết 2 phương thức mã hóa password cho người dùng đăng nhập local
 
 module.exports = mongooes.model 'User', userSchema
