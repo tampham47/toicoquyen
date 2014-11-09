@@ -1,14 +1,16 @@
 {
-	"name": "ok1dollar",
-	"private": true,
-	"dependencies": {
+  "name": "ok1dollar",
+  "private": true,
+  "dependencies": {
     "express": "3.4.x",
     "lodash": "*",
     "jade": "*",
     "moment": "2.8.3",
-		"passport": "0.2.0",
+    "passport": "0.2.0",
+    "passport-local": "*",
     "passport-local-mongoose": "0.2.x",
     "passport-facebook": "*",
-		"mongoose": "latest"
-	}
+    "bcrypt-nodejs": "*",
+    "mongoose": "latest"
+  }
 }

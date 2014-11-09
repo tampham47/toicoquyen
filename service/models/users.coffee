@@ -1,10 +1,10 @@
 'use strict'
 
 mongooes          = require 'mongoose'
-#passportLocal = require 'passport-local-mongoose'
-passportLocal     = require 'passport-local'
-passportFacebook  = require 'passport-facebook'
-bcrypt            = require 'bcrypt-nodejs'
+passportLocal = require 'passport-local-mongoose'
+# passportLocal     = require 'passport-local'
+# passportFacebook  = require 'passport-facebook'
+# bcrypt            = require 'bcrypt-nodejs'
 
 Schema            = mongooes.Schema
 
@@ -48,6 +48,6 @@ UserSchema.set 'toJSON',
 
 UserSchema.plugin passportLocal
 
-UserSchema.methods passportLocal # Thêm để viết 2 phương thức mã hóa password cho người dùng đăng nhập local
+# UserSchema.methods passportLocal # Thêm để viết 2 phương thức mã hóa password cho người dùng đăng nhập local
 
 module.exports = mongooes.model 'User', UserSchema

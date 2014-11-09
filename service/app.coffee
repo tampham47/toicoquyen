@@ -24,12 +24,12 @@ passport.use User.createStrategy()
 passport.serializeUser User.serializeUser()
 passport.deserializeUser User.deserializeUser()
 
-passport.use new facebookStrategy
-  clientID: 'FACEBOOK_APP_ID'
-  clientSecret: 'FACEBOOK_APP_SECRET'
-  callbackURL: 'http://localhost:3010/auth/facebook/callback'
-, (accessToken, refreshToken, profile, done) ->
-  console.log 'accessToken', accessToken
+# passport.use new facebookStrategy
+#   clientID: 'FACEBOOK_APP_ID'
+#   clientSecret: 'FACEBOOK_APP_SECRET'
+#   callbackURL: 'http://localhost:3010/auth/facebook/callback'
+# , (accessToken, refreshToken, profile, done) ->
+#   console.log 'accessToken', accessToken
 
 
 mongoose.connect 'mongodb://localhost/vnpetitions'

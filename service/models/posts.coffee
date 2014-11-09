@@ -33,6 +33,11 @@ PostsSchema = new Schema
     type: Schema.Types.Mixed
 
   # amount of vote
+  ExpectedSign:
+    type: Number
+    default: 0
+
+  # amount of vote
   AmountOfVote:
     type: Number
     default: 0
