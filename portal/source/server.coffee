@@ -19,10 +19,9 @@ app.locals.pretty = false
 
 # Development configuration
 if 'development' is app.get('env')
-  app.use express.errorHandler(
+  app.use express.errorHandler
     dumpExceptions: true
     showStack: true
-  )
   app.locals.pretty = true
 
 # Routes
