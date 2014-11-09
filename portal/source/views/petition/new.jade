@@ -1,38 +1,36 @@
 .row
   .col-md-6.col-md-offset-3
     .page-header(style='margin-top:0px')
-      h2 {{page}} Start a petition
+      h2 Start a petition
 
     .post
       form.form(role='form')
         .form-group
-          label(for='title') Tên tổ chức/cá nhân mà bạn muốn gởi thỉnh nguyện
-          input#title.form-control(type='text', ng-model='post.TargetUser')
+          label(for='target-user') Tên tổ chức/cá nhân mà bạn muốn gởi thỉnh nguyện
+          input#target-user.form-control(type='text', ng-model='post.TargetUser')
           p.help-block A petition is a public message to one or more decision makers, asking them to do something. Name the person or group who should receive your petition. Later, you’ll be able to add their contact info so they are notified when people sign.
 
         .form-group
-          label(for='petition') Bạn muốn họ làm gì?
-          input#petition.form-control(type='text', ng-model='post.Content')
+          label(for='content') Bạn muốn họ làm gì?
+          textarea#content.form-control(ng-model='post.Content', style='min-height:100px')
           p.help-block Ask your petition’s decision maker to do something, as if you were speaking to them directly. For example, “Pay your workers overtime”.
 
         .form-group(style='margin-top:20px')
-          label(for='exampleInputEmail1') Tại sao vấn đề này lại quan trọng?
-          //- div.textarea(ng-model='post.content', ng-meditor, style='min-height:200px')
-          textarea.form-control(ng-model='post.Reason', style='min-height:100px')
+          label(for='reason') Tại sao vấn đề này lại quan trọng?
+          textarea#reason.form-control(ng-model='post.Reason', style='min-height:100px')
           p.help-block Explain why people should support your petition, why you started it, and how it can make a difference
 
         .form-group(style='margin-top:20px')
-          label(for='target') Mục tiêu
-          input#target.form-control(type='text', ng-model='post.ExpectedSign')
+          label(for='expected-sign') Mục tiêu
+          input#expected-sign.form-control(type='text', ng-model='post.ExpectedSign')
           p.help-block Số lượng chữ ký cần đạt để bạn tự tin thể hiện quan điểm.
 
-        .form-group
-          button.btn.btn-success.pull-right(type='submit', ng-click='submit()')
-            //- i.glyphicon.glyphicon-plus
+        .form-group.pull-right
+          a.btn.btn-default(href='#/')
+            | Hủy
+
+          button.btn.btn-success(type='submit', ng-click='submit()')
             | Đăng bài viết
 
-          //- a.btn.btn-default(href='#/petition')
-            i.glyphicon.glyphicon-remove
-            | Hủy
 
   .col-md-3
