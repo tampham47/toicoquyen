@@ -6,5 +6,25 @@ angular.module('site.user')
     controller: 'LoginCtrl'
     templateUrl: 'views/user/login.jade'
 
-.controller 'LoginCtrl', ($scope, $location) ->
+.controller 'LoginCtrl', ($scope, $location, Facebook) ->
   console.log 'LoginCtrl'
+
+  $scope.getLoginStatus = ->
+    Facebook.getLoginStatus (response) ->
+      if response.status is 'connected'
+        $scope.loggedIn = true
+      else
+        $scope.loggedIn = false
+      return
+    return
+
+  $scope.fbLogin = ->
+    Facebook.login (response) ->
+      console.log 'response', response
+      return
+    return
+
+  $scope.getData = ->
+    Facebook.api '/user', (response) ->
+      console.log 'userData', response
+
