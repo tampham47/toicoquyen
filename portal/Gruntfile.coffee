@@ -44,6 +44,7 @@ module.exports = (grunt) ->
         cwd: 'source/'
         src: [
           'controllers/**/*.coffee',
+          'commons/**/*.coffee',
           'directives/**/*.coffee',
           'interfaces/**/*.coffee',
           'models/**/*.coffee']
