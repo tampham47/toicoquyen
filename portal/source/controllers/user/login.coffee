@@ -25,6 +25,6 @@ angular.module('site.user')
     return
 
   $scope.getData = ->
-    Facebook.api '/user', (response) ->
+    Facebook.api '/me', (response) ->
       console.log 'userData', response
 

@@ -1,10 +1,9 @@
 .row
   .col-md-6.col-md-offset-3
-    .media(ng-repeat='item in [0,1,2,3,4,5,6]')
+    .media(ng-repeat='item in data')
       .media-body
         h2.media-heading
-          a(href='#/petition/detail')
-            | Đức và những vấn đề giáo dục
+          a(href='#/petition/detail') {{item.TargetUser}}
           br
           small Phạm Minh Tâm - Oct 25th
         p
