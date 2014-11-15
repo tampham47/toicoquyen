@@ -12,12 +12,12 @@ PostsSchema = new Schema
     require: true
 
   # person/organize whom you want to send petition
-  TargetUser:
+  To:
     type: String
     require: true
 
   # what user want to
-  Content:
+  Petition:
     type: String
     require: true
 
@@ -32,13 +32,13 @@ PostsSchema = new Schema
   MixContent:
     type: Schema.Types.Mixed
 
-  # amount of vote
+  # the expected of signs
   ExpectedSign:
     type: Number
     default: 0
 
-  # amount of vote
-  AmountOfVote:
+  # total sign
+  TotalSign:
     type: Number
     default: 0
 
