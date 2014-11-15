@@ -14,10 +14,9 @@ angular.module('site.petition')
   $scope.submit = ->
     console.log 'submit', $scope.post
     model = $scope.post
-    # model.Creator = CurrentUser.id
-    Post.create(model).$promise.then (data) ->
-      console.log 'data', data
-      $location.path '/'
+    Post.create(model).$promise.then (r) ->
+      console.log 'data', r
+      $location.path '/petition/detail/' + r.data.id
     , (err) ->
       console.log 'err', err
 
