@@ -7,12 +7,12 @@
       form.form(role='form')
         .form-group
           label(for='target-user') Tên tổ chức/cá nhân mà bạn muốn gởi thỉnh nguyện
-          input#target-user.form-control(type='text', ng-model='post.TargetUser')
+          input#target-user.form-control(type='text', ng-model='post.To')
           p.help-block A petition is a public message to one or more decision makers, asking them to do something. Name the person or group who should receive your petition. Later, you’ll be able to add their contact info so they are notified when people sign.
 
         .form-group
           label(for='content') Bạn muốn họ làm gì?
-          textarea#content.form-control(ng-model='post.Content', style='min-height:100px')
+          textarea#content.form-control(ng-model='post.Petition', style='min-height:100px')
           p.help-block Ask your petition’s decision maker to do something, as if you were speaking to them directly. For example, “Pay your workers overtime”.
 
         .form-group(style='margin-top:20px')

@@ -28,8 +28,8 @@ deleteById = (req, res) ->
     res.send {err: err}
 
 getById = (req, res) ->
-  postId = req.query.postId
-  post.getById(postId).then (data) ->
+  postId = req.query.id
+  Post.getById(postId).then (data) ->
     res.send {data: data}
   , (err) ->
     res.send {err: err}

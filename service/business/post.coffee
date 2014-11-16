@@ -13,7 +13,7 @@ deleteById = (id) ->
   PostModel.remove({_id: id}).exec()
 
 getById = (id) ->
-  PostModel.getById(id).exec()
+  PostModel.findOne({_id: id}).exec()
 
 getAll = ->
   PostModel.find({}).populate('Creator').exec()
