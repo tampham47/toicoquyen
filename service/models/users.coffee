@@ -1,12 +1,11 @@
 'use strict'
 
-mongooes          = require 'mongoose'
+mongoose = require 'mongoose'
 passportLocal = require 'passport-local-mongoose'
+Schema = mongoose.Schema
 # passportLocal     = require 'passport-local'
 # passportFacebook  = require 'passport-facebook'
 # bcrypt            = require 'bcrypt-nodejs'
-
-Schema            = mongooes.Schema
 
 UserSchema = new Schema
   # Mongoose auto create a primary key for you, _id
@@ -50,4 +49,4 @@ UserSchema.plugin passportLocal
 
 # UserSchema.methods passportLocal # Thêm để viết 2 phương thức mã hóa password cho người dùng đăng nhập local
 
-module.exports = mongooes.model 'User', UserSchema
+module.exports = mongoose.model 'User', UserSchema
