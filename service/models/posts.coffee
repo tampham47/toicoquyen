@@ -26,6 +26,11 @@ PostsSchema = new Schema
     type: String
     require: true
 
+  # TEST
+  Textbox:
+    type: String
+    require: true
+
   Link:
     type: String
 

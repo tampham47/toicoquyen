@@ -25,6 +25,11 @@
           input#expected-sign.form-control(type='text', ng-model='post.ExpectedSign')
           p.help-block Số lượng chữ ký cần đạt để bạn tự tin thể hiện quan điểm.
 
+        .form-group(style='margin-top:20px')
+          label(for='text-box') ATextbox
+          input#text-box.form-control(type='text', ng-model='post.Textbox')
+          p.help-block This is a textbox.
+
         .form-group.pull-right
           a.btn.btn-default(href='#/')
             | Hủy
