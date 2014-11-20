@@ -5,7 +5,6 @@ passport = require 'passport'
 mongoose = require 'mongoose'
 facebookStrategy = require('passport-facebook').Strategy
 app = express()
-# ckStaticsPath = require('node-ckeditor')
 
 # Default configuration
 app.set 'port', process.env.PORT or 3010
@@ -19,7 +18,6 @@ app.use express.methodOverride()
 app.use express.cookieParser('frontend')
 app.use app.router
 app.use express.static(path.join(__dirname, '../public'))
-# app.use express.static('ckStaticsPath')
 app.locals.pretty = false
 
 # configure passport
