@@ -19,5 +19,5 @@ module.exports = (app) ->
   require('./user')(app)
   require('./post')(app)
   require('./vote')(app)
-  require('./facebook')(app)
+  require('./auth')(app)
 
