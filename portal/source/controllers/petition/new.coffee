@@ -7,15 +7,15 @@ angular.module('site.petition')
     templateUrl: 'views/petition/new.jade'
 
 .controller 'PetitionNewCtrl', ($scope, $location, Post) ->
-  console.log 'PetitionNewCtrl'
+  console.log 'PetitionNewCtrltest'
   $scope.page = 'Petition Page'
 
   # single page application
   $scope.submit = ->
-    # Content = CKEDITOR.instances.content.getData();
-    # console.log Content
+    # $scope.post.Petition = CKEDITOR.instances.content.getData
+    # $scope.post.Reason = 'reason'
     console.log 'submit', $scope.post
-    # $scope.post.Petition = CKEDITOR.instances.content.getData();
+    # $scope.post.Petition = 
     # $scope.post.Reason = CKEDITOR.instances.reason.getData();
     model = $scope.post
     console.log model
