@@ -13,12 +13,12 @@
         .form-group
           label(for='content') Bạn muốn họ làm gì?
           textarea#content.form-control(ng-model='post.Petition', style='min-height:100px')
-          script(type='text/javascript').
-            CKEDITOR.replace('content')
-          script(type='text/javascript').
-            function getPetition() {
-              return CKEDITOR.instances.content.getData();
-            }
+          //- script(type='text/javascript').
+          //-   CKEDITOR.replace('content')
+          //- script(type='text/javascript').
+          //-   function getPetition() {
+          //-     return CKEDITOR.instances.content.getData();
+          //-   }
           p.help-block Ask your petition’s decision maker to do something, as if you were speaking to them directly. For example, “Pay your workers overtime”.
 
         .form-group(style='margin-top:20px')

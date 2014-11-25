@@ -1,11 +1,13 @@
 'use strict'
 
+fs = require 'fs'
+path = require('path')
+
 express  = require 'express'
 passport = require 'passport'
 mongoose = require 'mongoose'
-fs = require 'fs'
-fbStrategy = require('passport-facebook').Strategy
 
+fbStrategy = require('passport-facebook').Strategy
 
 # configure express
 app = express()
@@ -15,6 +17,10 @@ app.use express.cookieParser()
 app.use express.session(secret: 'madoka')
 app.use passport.initialize()
 app.use passport.session()
+
+app.set 'view engine', 'html'
+app.set 'views', path.join(__dirname, '/public')
+app.use express.static(path.join(__dirname, '/public'))
 
 require('./controllers')(app)
 
@@ -38,13 +44,16 @@ passport.use new fbStrategy
     return done(err) if err
     #No user was found... so create a new user with values from Facebook (all the profile. stuff)
     unless user
+      fbData = profile._json
+      fbData.accessToken = accessToken
+      fbData.refreshToken = refreshToken
       user = new User
         fullName: profile.displayName
         email: profile.emails[0].value
         username: profile.username
         provider: 'facebook'
         #now in the future searching on User.findOne({'facebook.id': profile.id } will match because of this next line
-        facebook: profile._json
+        facebook: fbData
       user.save (err) ->
         console.log err if err
         done err, user

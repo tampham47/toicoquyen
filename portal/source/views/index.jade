@@ -16,12 +16,10 @@ html(class='no-js', lang='en', ng-app='site')
     link(rel='stylesheet', href='/packages/bootstrap/dist/css/bootstrap.min.css')
 
     //- medium-editor
-    link(rel='stylesheet', href='/packages/medium-editor/dist/css/medium-editor.css')
-    link(rel='stylesheet', href='/packages/medium-editor/dist/css/themes/default.css')
+    //- link(rel='stylesheet', href='/packages/medium-editor/dist/css/medium-editor.css')
+    //- link(rel='stylesheet', href='/packages/medium-editor/dist/css/themes/default.css')
 
-    link(rel="stylesheet", href="css/style.css")
-    script(src='js/modernizr.js')
-    script(src='/packages/ckeditor/ckeditor.js')
+    //- link(rel="stylesheet", href="css/style.css")
   body
     .container
       div.clearfix
@@ -45,34 +43,21 @@ html(class='no-js', lang='en', ng-app='site')
                   a(ng-href='#/login')
                     b ĐĂNG NHẬP
 
-              //- ul.nav.navbar-nav.navbar-right.pull-right(style='padding-right:40px')
-                li.dropdown
-                  a.dropdown-toggle(href='#', data-toggle='dropdown')
-                    | Tâm Phạm
-                    b.caret
-                  ul.dropdown-menu
-                    //- li
-                    //-   a(href='#') Thông tin tài khoản
-                    //- li
-                    //-   a(href='#') Quản lý bài viết
-                    //- li
-                    //-   a(href='#') Quản lý profile
-                    //- li.divider
-                    li
-                      a(href='#', ng-click='logout()') Đăng xuất
-
       div(ng-view, style='margin-top:80px')
 
       .row(style='margin-top:60px; margin-bottom:50px')
         .col-md-12
           label.label.label-success Youth studios
 
+
+    script(src='js/modernizr.js')
     script(src='js/l10n.js')
     script(src='js/libs.js')
 
     script(src='/packages/medium-editor/dist/js/medium-editor.js')
     script(src='/packages/bootstrap/dist/js/bootstrap.js')
     script(src='/packages/angular-facebook/lib/angular-facebook.js')
+    //- script(src='/packages/ckeditor/ckeditor.js')
 
 
     script(src='js/plugins.js')

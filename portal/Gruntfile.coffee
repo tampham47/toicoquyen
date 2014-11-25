@@ -1,5 +1,6 @@
 module.exports = (grunt) ->
   grunt.initConfig
+    dist: 'public'
     pkg: grunt.file.readJSON('package.json')
     jade:
       compile:
@@ -11,7 +12,7 @@ module.exports = (grunt) ->
             expand: true
             cwd: 'source/views'
             src: ['*.jade']
-            dest: 'public/'
+            dest: '<%= dist %>/'
             ext: '.html'
           }
           {
@@ -23,7 +24,7 @@ module.exports = (grunt) ->
               '!mixins/*'
               '!modules/*'
             ]
-            dest: 'public/views/'
+            dest: '<%= dist %>/views/'
             ext: '.html'
           }
         ]
@@ -33,7 +34,7 @@ module.exports = (grunt) ->
         options:
           compress: false
 
-        files: ['public/css/style.css': 'source/assets/css/style.less']
+        files: ['<%= dist %>/css/style.css': 'source/assets/css/style.less']
 
     coffee:
       options:
@@ -48,16 +49,16 @@ module.exports = (grunt) ->
           'directives/**/*.coffee',
           'interfaces/**/*.coffee',
           'models/**/*.coffee']
-        dest: 'public/'
+        dest: '<%= dist %>/'
         ext: '.js'
 
     mapcat:
       all:
         src: [
-          'public/controllers/**/index.js.map'
-          'public/controllers/**/*.js.map'
+          '<%= dist %>/controllers/**/index.js.map'
+          '<%= dist %>/controllers/**/*.js.map'
         ]
-        dest: 'public/scripts.js'
+        dest: '<%= dist %>/scripts.js'
 
       options:
         oldRoot: 'source/controllers/'
@@ -75,18 +76,18 @@ module.exports = (grunt) ->
 
       all:
         src: [
-          'public/views/**/*.html'
-          '!public/views/*.html'
-          '!public/views/modules'
-          '!public/views/mixins'
+          '<%= dist %>/views/**/*.html'
+          '!<%= dist %>/views/*.html'
+          '!<%= dist %>/views/modules'
+          '!<%= dist %>/views/mixins'
         ]
-        dest: 'public/js/templates.js'
+        dest: '<%= dist %>/js/templates.js'
 
     concat:
       dist:
         files: [
-          'public/js/modernizr.js': 'source/assets/js/libs/modernizr-2.7.1.js'
-          'public/js/libs.js': [
+          '<%= dist %>/js/modernizr.js': 'source/assets/js/libs/modernizr-2.7.1.js'
+          '<%= dist %>/js/libs.js': [
             'source/assets/js/libs/jquery-1.11.1.js'
             'source/assets/js/libs/angular.js'
             'source/assets/js/libs/angular-route.js'
@@ -96,17 +97,17 @@ module.exports = (grunt) ->
             'source/assets/js/libs/angular-animate.js'
             'source/assets/js/libs/plugins/*.js'
           ]
-          'public/js/l10n.js': 'source/assets/js/l10n.js'
-          'public/js/plugins.js': [
+          '<%= dist %>/js/l10n.js': 'source/assets/js/l10n.js'
+          '<%= dist %>/js/plugins.js': [
             'source/assets/js/settings.js'
             'source/assets/js/plugins/*.js'
           ]
-          'public/js/scripts.js': [
-            'public/controllers/**/index.js' #the order is very important
-            'public/controllers/**/*.js'
-            'public/commons/**/*.js'
-            'public/directives/**/*.js'
-            'public/interfaces/**/*.js'
+          '<%= dist %>/js/scripts.js': [
+            '<%= dist %>/controllers/**/index.js' #the order is very important
+            '<%= dist %>/controllers/**/*.js'
+            '<%= dist %>/commons/**/*.js'
+            '<%= dist %>/directives/**/*.js'
+            '<%= dist %>/interfaces/**/*.js'
           ]
         ]
 
@@ -116,7 +117,7 @@ module.exports = (grunt) ->
           expand: true
           cwd: 'source/packages/'
           src: '**/*'
-          dest: 'public/packages/'
+          dest: '<%= dist %>/packages/'
         ]
 
       ajax:
@@ -124,7 +125,7 @@ module.exports = (grunt) ->
           expand: true
           cwd: 'source/views/ajax/'
           src: '**/*'
-          dest: 'public/ajax/'
+          dest: '<%= dist %>/ajax/'
         ]
 
       images:
@@ -132,7 +133,7 @@ module.exports = (grunt) ->
           expand: true
           cwd: 'source/assets/images/'
           src: '**/*'
-          dest: 'public/images/'
+          dest: '<%= dist %>/images/'
         ]
 
       icons:
@@ -140,7 +141,7 @@ module.exports = (grunt) ->
           expand: true
           cwd: 'source/assets/icons/'
           src: '**/*'
-          dest: 'public/'
+          dest: '<%= dist %>/'
         ]
 
       videos:
@@ -148,7 +149,7 @@ module.exports = (grunt) ->
           expand: true
           cwd: 'source/assets/videos/'
           src: '**/*'
-          dest: 'public/videos/'
+          dest: '<%= dist %>/videos/'
         ]
 
       xml:
@@ -156,7 +157,7 @@ module.exports = (grunt) ->
           expand: true
           cwd: 'source/assets/xml/'
           src: '**/*'
-          dest: 'public/xml/'
+          dest: '<%= dist %>/xml/'
         ]
 
       fonts:
@@ -164,7 +165,7 @@ module.exports = (grunt) ->
           expand: true
           cwd: 'source/assets/fonts/'
           src: '**/*'
-          dest: 'public/fonts/'
+          dest: '<%= dist %>/fonts/'
         ]
 
       swf:
@@ -172,7 +173,7 @@ module.exports = (grunt) ->
           expand: true
           cwd: 'source/assets/swf/'
           src: '**/*'
-          dest: 'public/swf/'
+          dest: '<%= dist %>/swf/'
         ]
 
     jshint:
@@ -241,7 +242,7 @@ module.exports = (grunt) ->
         'vendor-prefix': false
         'zero-units': true
 
-      files: ['public/css/*.css']
+      files: ['<%= dist %>/css/*.css']
 
     htmlhint:
       options:
@@ -253,7 +254,7 @@ module.exports = (grunt) ->
         'src-not-empty': true
         'img-alt-require': true
 
-      files: ['public/*.html']
+      files: ['<%= dist %>/*.html']
 
     watch:
       options:
@@ -337,18 +338,18 @@ module.exports = (grunt) ->
 
         files: [
           expand: true
-          cwd: 'public/images/'
+          cwd: '<%= dist %>/images/'
           src: '**/*'
-          dest: 'public/images/'
+          dest: '<%= dist %>/images/'
         ]
 
     cssmin:
       compress:
-        files: ['public/css/style.css': 'public/css/style.css']
+        files: ['<%= dist %>/css/style.css': '<%= dist %>/css/style.css']
 
     usemin:
-      html: ['public/**/*.html']
-      css: ['public/**/*.css']
+      html: ['<%= dist %>/**/*.html']
+      css: ['<%= dist %>/**/*.css']
 
     uglify:
       options:
@@ -358,13 +359,13 @@ module.exports = (grunt) ->
 
       dist:
         files: [
-          'public/js/modernizr.js': 'source/assets/js/libs/modernizr-2.7.1.js'
-          'public/js/libs.js': [
+          '<%= dist %>/js/modernizr.js': 'source/assets/js/libs/modernizr-2.7.1.js'
+          '<%= dist %>/js/libs.js': [
             'source/assets/js/libs/jquery-1.11.1.js'
             'source/assets/js/libs/plugins/*.js'
           ]
-          'public/js/l10n.js': 'source/assets/js/l10n.js'
-          'public/js/script.js': [
+          '<%= dist %>/js/l10n.js': 'source/assets/js/l10n.js'
+          '<%= dist %>/js/script.js': [
             'source/assets/js/settings.js'
             'source/assets/js/plugins/*.js'
           ]
@@ -377,7 +378,7 @@ module.exports = (grunt) ->
       dist:
         files: [
           expand: true
-          cwd: 'public/'
+          cwd: '<%= dist %>/'
           src: ['*.html']
           dest: 'reports/'
           ext: '-report.txt'
