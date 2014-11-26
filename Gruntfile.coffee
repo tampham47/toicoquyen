@@ -1,6 +1,7 @@
 module.exports = (grunt) ->
   grunt.initConfig
-    dist: 'public'
+    dist: 'portal/public'
+    source: 'portal/source'
     pkg: grunt.file.readJSON('package.json')
     jade:
       compile:
@@ -10,14 +11,14 @@ module.exports = (grunt) ->
         files: [
           {
             expand: true
-            cwd: 'source/views'
+            cwd: '<%= source %>/views'
             src: ['*.jade']
             dest: '<%= dist %>/'
             ext: '.html'
           }
           {
             expand: true
-            cwd: 'source/views'
+            cwd: '<%= source %>/views'
             src: [
               '**/*.jade'
               '!*.jade'
@@ -34,7 +35,7 @@ module.exports = (grunt) ->
         options:
           compress: false
 
-        files: ['<%= dist %>/css/style.css': 'source/assets/css/style.less']
+        files: ['<%= dist %>/css/style.css': '<%= source %>/assets/css/style.less']
 
     coffee:
       options:
@@ -42,7 +43,7 @@ module.exports = (grunt) ->
         sourceMap: true
       all:
         expand: true
-        cwd: 'source/'
+        cwd: '<%= source %>/'
         src: [
           'controllers/**/*.coffee',
           'commons/**/*.coffee',
@@ -61,7 +62,7 @@ module.exports = (grunt) ->
         dest: '<%= dist %>/scripts.js'
 
       options:
-        oldRoot: 'source/controllers/'
+        oldRoot: '<%= source %>/controllers/'
         newRoot: 'src'
 
     html2js:
@@ -69,7 +70,7 @@ module.exports = (grunt) ->
         base: 'public'
         module: 'site.templates'
         rename: (name) ->
-          name.replace /\.html$/, '.jade'
+          name.replace('.html', '.jade').replace('../portal/public/', '')
 
         indentString: '\t'
         quoteChar: "'"
@@ -86,21 +87,21 @@ module.exports = (grunt) ->
     concat:
       dist:
         files: [
-          '<%= dist %>/js/modernizr.js': 'source/assets/js/libs/modernizr-2.7.1.js'
+          '<%= dist %>/js/modernizr.js': '<%= source %>/assets/js/libs/modernizr-2.7.1.js'
           '<%= dist %>/js/libs.js': [
-            'source/assets/js/libs/jquery-1.11.1.js'
-            'source/assets/js/libs/angular.js'
-            'source/assets/js/libs/angular-route.js'
-            'source/assets/js/libs/angular-loader.js'
-            'source/assets/js/libs/angular-resource.js'
-            'source/assets/js/libs/angular-sanitize.js'
-            'source/assets/js/libs/angular-animate.js'
-            'source/assets/js/libs/plugins/*.js'
+            '<%= source %>/assets/js/libs/jquery-1.11.1.js'
+            '<%= source %>/assets/js/libs/angular.js'
+            '<%= source %>/assets/js/libs/angular-route.js'
+            '<%= source %>/assets/js/libs/angular-loader.js'
+            '<%= source %>/assets/js/libs/angular-resource.js'
+            '<%= source %>/assets/js/libs/angular-sanitize.js'
+            '<%= source %>/assets/js/libs/angular-animate.js'
+            '<%= source %>/assets/js/libs/plugins/*.js'
           ]
-          '<%= dist %>/js/l10n.js': 'source/assets/js/l10n.js'
+          '<%= dist %>/js/l10n.js': '<%= source %>/assets/js/l10n.js'
           '<%= dist %>/js/plugins.js': [
-            'source/assets/js/settings.js'
-            'source/assets/js/plugins/*.js'
+            '<%= source %>/assets/js/settings.js'
+            '<%= source %>/assets/js/plugins/*.js'
           ]
           '<%= dist %>/js/scripts.js': [
             '<%= dist %>/controllers/**/index.js' #the order is very important
@@ -115,7 +116,7 @@ module.exports = (grunt) ->
       packages:
         files: [
           expand: true
-          cwd: 'source/packages/'
+          cwd: '<%= source %>/packages/'
           src: '**/*'
           dest: '<%= dist %>/packages/'
         ]
@@ -123,7 +124,7 @@ module.exports = (grunt) ->
       ajax:
         files: [
           expand: true
-          cwd: 'source/views/ajax/'
+          cwd: '<%= source %>/views/ajax/'
           src: '**/*'
           dest: '<%= dist %>/ajax/'
         ]
@@ -131,7 +132,7 @@ module.exports = (grunt) ->
       images:
         files: [
           expand: true
-          cwd: 'source/assets/images/'
+          cwd: '<%= source %>/assets/images/'
           src: '**/*'
           dest: '<%= dist %>/images/'
         ]
@@ -139,7 +140,7 @@ module.exports = (grunt) ->
       icons:
         files: [
           expand: true
-          cwd: 'source/assets/icons/'
+          cwd: '<%= source %>/assets/icons/'
           src: '**/*'
           dest: '<%= dist %>/'
         ]
@@ -147,7 +148,7 @@ module.exports = (grunt) ->
       videos:
         files: [
           expand: true
-          cwd: 'source/assets/videos/'
+          cwd: '<%= source %>/assets/videos/'
           src: '**/*'
           dest: '<%= dist %>/videos/'
         ]
@@ -155,7 +156,7 @@ module.exports = (grunt) ->
       xml:
         files: [
           expand: true
-          cwd: 'source/assets/xml/'
+          cwd: '<%= source %>/assets/xml/'
           src: '**/*'
           dest: '<%= dist %>/xml/'
         ]
@@ -163,7 +164,7 @@ module.exports = (grunt) ->
       fonts:
         files: [
           expand: true
-          cwd: 'source/assets/fonts/'
+          cwd: '<%= source %>/assets/fonts/'
           src: '**/*'
           dest: '<%= dist %>/fonts/'
         ]
@@ -171,7 +172,7 @@ module.exports = (grunt) ->
       swf:
         files: [
           expand: true
-          cwd: 'source/assets/swf/'
+          cwd: '<%= source %>/assets/swf/'
           src: '**/*'
           dest: '<%= dist %>/swf/'
         ]
@@ -200,8 +201,8 @@ module.exports = (grunt) ->
       files: [
         'package.json'
         'Gruntfile.js'
-        'source/assets/js/plugins/*.js'
-        'source/assets/js/*.js'
+        '<%= source %>/assets/js/plugins/*.js'
+        '<%= source %>/assets/js/*.js'
       ]
 
     csslint:
@@ -267,24 +268,24 @@ module.exports = (grunt) ->
         files: [
           'package.json'
           'Gruntfile.js'
-          'source/server.coffee'
-          'source/routes.coffee'
+          '<%= source %>/server.coffee'
+          '<%= source %>/routes.coffee'
         ]
         tasks: ['jshint']
 
       coffee:
         files: [
-          'source/controllers/**/*.coffee'
-          'source/models/**/*.coffee'
+          '<%= source %>/controllers/**/*.coffee'
+          '<%= source %>/models/**/*.coffee'
         ]
         tasks: [ 'coffee', 'jshint', 'concat' ]
 
       js:
         files: [
-          'source/assets/js/plugins/*.js'
-          'source/assets/js/*.js'
-          'source/controllers/**/*.js'
-          'source/models/**/*.js'
+          '<%= source %>/assets/js/plugins/*.js'
+          '<%= source %>/assets/js/*.js'
+          '<%= source %>/controllers/**/*.js'
+          '<%= source %>/models/**/*.js'
         ]
         tasks: [
           'jshint'
@@ -292,7 +293,7 @@ module.exports = (grunt) ->
         ]
 
       jade:
-        files: ['source/views/**/*.jade']
+        files: ['<%= source %>/views/**/*.jade']
         tasks: [
           'jade'
           'htmlhint'
@@ -300,34 +301,34 @@ module.exports = (grunt) ->
         ]
 
       ajax:
-        files: ['source/views/ajax/**/*.*']
+        files: ['<%= source %>/views/ajax/**/*.*']
         tasks: ['copy:ajax']
 
       less:
-        files: ['source/assets/css/**/*.less']
+        files: ['<%= source %>/assets/css/**/*.less']
         tasks: [
           'less'
           'csslint'
         ]
 
       fonts:
-        files: ['source/assets/fonts/**/*']
+        files: ['<%= source %>/assets/fonts/**/*']
         tasks: ['copy:fonts']
 
       images:
-        files: ['source/assets/images/**/*']
+        files: ['<%= source %>/assets/images/**/*']
         tasks: ['copy:images']
 
       videos:
-        files: ['source/assets/videos/**/*']
+        files: ['<%= source %>/assets/videos/**/*']
         tasks: ['copy:videos']
 
       xml:
-        files: ['source/assets/xml/**/*']
+        files: ['<%= source %>/assets/xml/**/*']
         tasks: ['copy:xml']
 
       swf:
-        files: ['source/assets/swf/**/*']
+        files: ['<%= source %>/assets/swf/**/*']
         tasks: ['copy:swf']
 
     imagemin:
@@ -359,15 +360,15 @@ module.exports = (grunt) ->
 
       dist:
         files: [
-          '<%= dist %>/js/modernizr.js': 'source/assets/js/libs/modernizr-2.7.1.js'
+          '<%= dist %>/js/modernizr.js': '<%= source %>/assets/js/libs/modernizr-2.7.1.js'
           '<%= dist %>/js/libs.js': [
-            'source/assets/js/libs/jquery-1.11.1.js'
-            'source/assets/js/libs/plugins/*.js'
+            '<%= source %>/assets/js/libs/jquery-1.11.1.js'
+            '<%= source %>/assets/js/libs/plugins/*.js'
           ]
-          '<%= dist %>/js/l10n.js': 'source/assets/js/l10n.js'
+          '<%= dist %>/js/l10n.js': '<%= source %>/assets/js/l10n.js'
           '<%= dist %>/js/script.js': [
-            'source/assets/js/settings.js'
-            'source/assets/js/plugins/*.js'
+            '<%= source %>/assets/js/settings.js'
+            '<%= source %>/assets/js/plugins/*.js'
           ]
         ]
 
@@ -386,7 +387,7 @@ module.exports = (grunt) ->
 
     nodemon:
       local:
-        script: 'source/server.coffee'
+        script: 'app.coffee'
 
     concurrent:
       options:
@@ -406,7 +407,7 @@ module.exports = (grunt) ->
 
       local:
         files:
-          reports: ['source/**/*.js']
+          reports: ['<%= source %>/**/*.js']
 
     qunit:
       options:
@@ -438,6 +439,7 @@ module.exports = (grunt) ->
     'csslint'
     'concat'
     'html2js'
+    # 'watch'
     'concurrent:local'
   ]
   grunt.registerTask 'build', ['default']

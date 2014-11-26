@@ -7,6 +7,7 @@ app = angular.module 'site', [
   'facebook'
 
   'site.templates'
+  'site.main'
   'site.home'
   'site.petition'
   'site.user'

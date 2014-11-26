@@ -19,10 +19,10 @@ app.use passport.initialize()
 app.use passport.session()
 
 app.set 'view engine', 'html'
-app.set 'views', path.join(__dirname, '/public')
-app.use express.static(path.join(__dirname, '/public'))
+app.set 'views', path.join(__dirname, '/portal/public')
+app.use express.static(path.join(__dirname, '/portal/public'))
 
-require('./controllers')(app)
+require('./service/controllers')(app)
 
 # configure passport
 User = mongoose.model 'User'

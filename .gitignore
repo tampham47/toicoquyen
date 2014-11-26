@@ -1,3 +1,5 @@
+node_modules
+
 portal/bower_components
 portal/node_modules
 portal/public

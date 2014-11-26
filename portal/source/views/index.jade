@@ -20,7 +20,7 @@ html(class='no-js', lang='en', ng-app='site')
     //- link(rel='stylesheet', href='/packages/medium-editor/dist/css/themes/default.css')
 
     //- link(rel="stylesheet", href="css/style.css")
-  body
+  body(ng-controller='MainCtrl')
     .container
       div.clearfix
         div.col-md-12.column
@@ -40,8 +40,10 @@ html(class='no-js', lang='en', ng-app='site')
                   a(ng-href='#/petition/new')
                     b ĐĂNG QUAN ĐIỂM
                 li
-                  a(ng-href='#/login')
+                  a(ng-if='!isAuth', ng-href='/auth/facebook', style='white-space:nowrap')
                     b ĐĂNG NHẬP
+                  a(ng-if='isAuth', style='white-space:nowrap')
+                    b {{userProfile.fullName}}
 
       div(ng-view, style='margin-top:80px')
 
