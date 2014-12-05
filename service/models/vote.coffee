@@ -5,30 +5,30 @@ Schema = mongoose.Schema
 
 VoteSchame = new Schema
 
-  Signer:
+  _user:
     type: Schema.Types.ObjectId
     ref: 'User'
     require: true
 
-  Target:
+  _post:
     type: Schema.Types.ObjectId
     ref: 'Post'
     require: true
 
-  Comment:
+  comment:
     type: String
 
-  Confirmation:
-    Status:
+  confirmation:
+    status:
       type: Boolean
       default: false
-    ConfirmedDate:
+    confirmedDate:
       type: Date
-    IsPublishUserInfo:
+    isPublishUserInfo:
       type: Boolean
       default: true
 
-  CreatedDate:
+  createdDate:
     type: Date
     default: new Date
 

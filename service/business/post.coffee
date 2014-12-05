@@ -13,10 +13,10 @@ deleteById = (id) ->
   PostModel.remove({_id: id}).exec()
 
 getById = (id) ->
-  PostModel.findOne({_id: id}).exec()
+  PostModel.findOne({_id: id}).populate('_user').exec()
 
 getAll = ->
-  PostModel.find({}).populate('Creator').exec()
+  PostModel.find({}).populate('_user').exec()
 
 module.exports = {
   create, update, deleteById, getById, getAll

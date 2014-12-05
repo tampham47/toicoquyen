@@ -6,52 +6,52 @@ Schema = mongooes.Schema
 PostsSchema = new Schema
   # Mongoose auto create a primary key for you, _id
 
-  Creator:
+  _user:
     type: Schema.Types.ObjectId
     ref: 'User'
     require: true
 
   # person/organize whom you want to send petition
-  To:
+  to:
     type: String
     require: true
 
   # what user want to
-  Petition:
+  petition:
     type: String
     require: true
 
   # why it important to you
-  Reason:
+  reason:
     type: String
     require: true
 
   # TEST
-  Textbox:
+  textbox:
     type: String
     require: true
 
-  Link:
+  link:
     type: String
 
-  MixContent:
+  mixContent:
     type: Schema.Types.Mixed
 
   # the expected of signs
-  ExpectedSign:
+  expectedSign:
     type: Number
     default: 0
 
   # total sign
-  TotalSign:
+  totalSign:
     type: Number
     default: 0
 
-  CreatedDate:
+  createdDate:
     type: Date
     default: new Date
 
-PostsSchema.virtual('PostId').get ->
+PostsSchema.virtual('postId').get ->
   return @_id
 PostsSchema.set 'toJSON',
   virtuals: true

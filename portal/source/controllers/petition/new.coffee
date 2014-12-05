@@ -6,18 +6,14 @@ angular.module('site.petition')
     controller: 'PetitionNewCtrl'
     templateUrl: 'views/petition/new.jade'
 
-.controller 'PetitionNewCtrl', ($scope, $location, Post) ->
-  console.log 'PetitionNewCtrltest'
+.controller 'PetitionNewCtrl', ($scope, $location, Post, Auth) ->
+  console.log 'PetitionNewCtrltest', Auth
   $scope.page = 'Petition Page'
 
-  # single page application
   $scope.submit = ->
-    # $scope.post.Petition = CKEDITOR.instances.content.getData
-    # $scope.post.Reason = 'reason'
     console.log 'submit', $scope.post
-    # $scope.post.Petition = 
-    # $scope.post.Reason = CKEDITOR.instances.reason.getData();
     model = $scope.post
+    model._user = Auth.user._id
     console.log model
     Post.create(model).$promise.then (r) ->
       console.log 'data', r

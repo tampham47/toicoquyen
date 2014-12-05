@@ -12,6 +12,7 @@
     "bootstrap": "*",
     "jquery": "~1.11.0",
     "modernizr": "~2.8.2",
+    "lodash": "*",
     "medium-editor":"1.6.5"
   }
 }
