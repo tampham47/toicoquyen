@@ -13,6 +13,7 @@
     "jquery": "~1.11.0",
     "modernizr": "~2.8.2",
     "lodash": "*",
+    "moment": "*",
     "medium-editor":"1.6.5"
   }
 }

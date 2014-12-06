@@ -4,7 +4,7 @@ app = angular.module 'site', [
   'ngRoute'
   'ngResource'
   'ngSanitize'
-  'facebook'
+  # 'facebook'
 
   'site.templates'
   'site.main'
@@ -14,6 +14,6 @@ app = angular.module 'site', [
   'site.test'
 ]
 
-app.config (FacebookProvider) ->
-  FacebookProvider.init '340855902630776'
-  return
+# app.config (FacebookProvider) ->
+#   FacebookProvider.init '340855902630776'
+#   return

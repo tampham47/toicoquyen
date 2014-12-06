@@ -12,6 +12,8 @@ angular.module('site.petition', [])
 
   Post.getAll().$promise.then (result) ->
     console.log 'data', result
+    _.forEach result.data, (item) ->
+      item.createdDate = moment(item.createdDate)
     $scope.data = result.data
   , (err) ->
     console.log 'err', err
