@@ -40,7 +40,7 @@ html(class='no-js', lang='en', ng-app='site')
                   a(ng-href='#/petition/new')
                     b ĐĂNG QUAN ĐIỂM
                 li
-                  a(ng-if='!isAuth', ng-href='/auth/facebook', style='white-space:nowrap')
+                  a.btn.btn-link(ng-if='!isAuth', style='white-space:nowrap', data-toggle='modal', data-target='#myModal')
                     b ĐĂNG NHẬP
                   a(ng-if='isAuth', style='white-space:nowrap')
                     b {{userProfile.fullName}}
@@ -51,6 +51,31 @@ html(class='no-js', lang='en', ng-app='site')
         .col-md-12
           label.label.label-success Youth studios
 
+    //- auth model
+    #myModal.modal.fade(tabindex='-1', role='dialog', aria-labelledby='myModalLabel', aria-hidden='true')
+      .modal-dialog
+        .modal-content
+          .modal-header
+            button.close(type='button', data-dismiss='modal')
+              span(aria-hidden='true') ×
+              span.sr-only Close
+            h4#myModalLabel.modal-title ĐĂNG NHẬP
+          .modal-body
+            form(role='form')
+              div.form-group
+                label(for='exampleInputEmail1') Email address
+                input#exampleInputEmail1.form-control(type='email')
+              div.form-group
+                label(for='exampleInputPassword1') Password
+                input#exampleInputPassword1.form-control(type='password')
+          .modal-footer
+            a.btn.btn-link.pull-left(ng-href='/auth/facebook', style='white-space:nowrap')
+              b Facebook
+            a.btn.btn-link.pull-left(ng-href='/auth/facebook', style='white-space:nowrap')
+              b Google
+            a.btn.btn-link.pull-left(ng-href='/auth/facebook', style='white-space:nowrap')
+              b Twitter
+            button.btn.btn-success(type='button') Đăng nhập
 
     script(src='js/modernizr.js')
     script(src='js/l10n.js')
