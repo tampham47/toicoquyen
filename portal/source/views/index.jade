@@ -6,7 +6,7 @@ html(class='no-js', lang='en', ng-app='site')
   head
     meta(charset='utf-8')
     //[if IE]><meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'><![endif]
-    title VN Petitions
+    title tcq
     meta(name='description', content='')
     meta(name='keywords', content='')
     meta(name='robots', content='index, follow')
@@ -14,12 +14,6 @@ html(class='no-js', lang='en', ng-app='site')
     meta(name='viewport', content='width=device-width, initial-scale=1')
 
     link(rel='stylesheet', href='/packages/bootstrap/dist/css/bootstrap.min.css')
-
-    //- medium-editor
-    //- link(rel='stylesheet', href='/packages/medium-editor/dist/css/medium-editor.css')
-    //- link(rel='stylesheet', href='/packages/medium-editor/dist/css/themes/default.css')
-
-    //- link(rel="stylesheet", href="css/style.css")
   body(ng-controller='MainCtrl')
     .container
       div.clearfix
@@ -32,50 +26,19 @@ html(class='no-js', lang='en', ng-app='site')
                 span.icon-bar
                 span.icon-bar
               a.navbar-brand(href='/#/', style='color:#a0f900')
-                | VN Petitions
+                | tcq
 
             div#bs-example-navbar-collapse-1.collapse.navbar-collapse
               ul.nav.navbar-nav.pull-right
                 li
-                  a(ng-href='#/petition/new')
-                    b ĐĂNG QUAN ĐIỂM
-                li
-                  a.btn.btn-link(ng-if='!isAuth', style='white-space:nowrap', data-toggle='modal', data-target='#myModal')
-                    b ĐĂNG NHẬP
-                  a(ng-if='isAuth', style='white-space:nowrap')
+                  a.btn.btn-link(
+                    href='/auth/facebook',
+                    ng-show='!isAuth', style='white-space:nowrap')
+                    b Đăng nhập bằng Facebook
+                  a(ng-show='isAuth', style='white-space:nowrap')
                     b {{userProfile.fullName}}
 
       div(ng-view, style='margin-top:80px')
-
-      .row(style='margin-top:60px; margin-bottom:50px')
-        .col-md-12
-          label.label.label-success Youth studios
-
-    //- auth model
-    #myModal.modal.fade(tabindex='-1', role='dialog', aria-labelledby='myModalLabel', aria-hidden='true')
-      .modal-dialog
-        .modal-content
-          .modal-header
-            button.close(type='button', data-dismiss='modal')
-              span(aria-hidden='true') ×
-              span.sr-only Close
-            h4#myModalLabel.modal-title ĐĂNG NHẬP
-          .modal-body
-            form(role='form')
-              div.form-group
-                label(for='exampleInputEmail1') Email address
-                input#exampleInputEmail1.form-control(type='email')
-              div.form-group
-                label(for='exampleInputPassword1') Password
-                input#exampleInputPassword1.form-control(type='password')
-          .modal-footer
-            a.btn.btn-link.pull-left(ng-href='/auth/facebook', style='white-space:nowrap')
-              b Facebook
-            a.btn.btn-link.pull-left(ng-href='/auth/facebook', style='white-space:nowrap')
-              b Google
-            a.btn.btn-link.pull-left(ng-href='/auth/facebook', style='white-space:nowrap')
-              b Twitter
-            button.btn.btn-success(type='button') Đăng nhập
 
     script(src='js/modernizr.js')
     script(src='js/l10n.js')
@@ -85,9 +48,6 @@ html(class='no-js', lang='en', ng-app='site')
     script(src='/packages/bootstrap/dist/js/bootstrap.js')
     script(src='/packages/moment/min/moment.min.js')
     script(src='/packages/lodash/dist/lodash.min.js')
-    //- script(src='/packages/angular-facebook/lib/angular-facebook.js')
-    //- script(src='/packages/ckeditor/ckeditor.js')
-
 
     script(src='js/plugins.js')
     script(src='js/templates.js')

@@ -11,39 +11,32 @@ PostsSchema = new Schema
     ref: 'User'
     require: true
 
-  # person/organize whom you want to send petition
-  to:
-    type: String
-    require: true
+  isAnonymous:
+    type: Boolean
+    default: false
 
   # what user want to
-  petition:
+  message:
     type: String
     require: true
 
-  # why it important to you
-  reason:
-    type: String
-    require: true
+  content:
+    video:
+      type: String
+    link:
+      type: String
+    image:
+      type: String
 
-  # TEST
-  textbox:
-    type: String
-    require: true
-
-  link:
-    type: String
-
-  mixContent:
-    type: Schema.Types.Mixed
+  tags: [String]
 
   # the expected of signs
-  expectedSign:
+  expectedVote:
     type: Number
     default: 0
 
   # total sign
-  totalSign:
+  totalVote:
     type: Number
     default: 0
 

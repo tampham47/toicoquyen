@@ -1,37 +1,14 @@
 .row
   .col-md-6.col-md-offset-3
     .page-header(style='margin-top:0px')
-      h2 Start a petition
+      h2 TÔI CÓ QUYỀN
 
     .post
       form.form(role='form')
         .form-group
-          label(for='target-user') Tên tổ chức/cá nhân mà bạn muốn gởi thỉnh nguyện
-          input#target-user.form-control(type='text', ng-model='post.to')
-          p.help-block A petition is a public message to one or more decision makers, asking them to do something. Name the person or group who should receive your petition. Later, you’ll be able to add their contact info so they are notified when people sign.
-
-        .form-group
           label(for='content', style='white-space:nowrap') Bạn muốn họ làm gì?
-          textarea#content.form-control(ng-model='post.petition', style='min-height:100px')
-          //- script(type='text/javascript').
-          //-   CKEDITOR.replace('content')
-          //- script(type='text/javascript').
-          //-   function getPetition() {
-          //-     return CKEDITOR.instances.content.getData();
-          //-   }
+          textarea#content.form-control(ng-model='post.message', style='min-height:100px')
           p.help-block Ask your petition’s decision maker to do something, as if you were speaking to them directly. For example, “Pay your workers overtime”.
-
-        .form-group(style='margin-top:20px')
-          label(for='reason', style='white-space:nowrap') Tại sao vấn đề này lại quan trọng?
-          textarea#reason.form-control(ng-model='post.reason', style='min-height:100px')
-          //- script(type='text/javascript').
-          //-   CKEDITOR.replace('reason')
-          p.help-block Explain why people should support your petition, why you started it, and how it can make a difference
-
-        .form-group(style='margin-top:20px')
-          label(for='expected-sign', style='white-space:nowrap') Mục tiêu
-          input#expected-sign.form-control(type='text', ng-model='post.expectedSign')
-          p.help-block Số lượng chữ ký cần đạt để bạn tự tin thể hiện quan điểm.
 
         .form-group.pull-right
           a.btn.btn-default(href='#/')
