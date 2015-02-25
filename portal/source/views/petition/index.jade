@@ -1,16 +1,15 @@
 .row
   .col-md-7.col-md-offset-2
-    form.form(ng-controller='PetitionNewCtrl', role='form', style='display:block')
+    form.form(role='form', style='display:block')
       .form-group
         textarea#content.form-control(ng-model='post.message', style='min-height:70px')
       .form-group
         button.btn.btn-success(type='submit', ng-click='submit()' onlick='getPetition()')
-          | Đăng bài viết
+          | Tôi có quyền
 
     div.content-list
       .media(ng-repeat='item in data')
         .media-body
-            //- .media-heading
           h4
             b Tôi có quyền&nbsp;
             |{{item.message}}
