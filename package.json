@@ -11,6 +11,7 @@
     "passport-local-mongoose": "0.2.x",
     "passport-facebook": "*",
     "bcrypt-nodejs": "*",
+    "facebook-api": "0.1.2",
     "mongoose": "latest"
   },
   "devDependencies": {

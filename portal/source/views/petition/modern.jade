@@ -1,0 +1,20 @@
+.row
+  .col-md-6.col-md-offset-3
+    .page-header(style='margin-top:0px')
+      h2 ĐĂNG QUAN ĐIỂM
+      p.help-block Hệ thống sẽ lưu trữ quan điểm của bạn, và mỗi khi đạt được 1000 quan điểm, thì đồng loạt các quan điểm sẽ được đăng lên trang cá nhân của mỗi người.
+
+    .post
+      form.form(role='form')
+        .form-group
+          textarea#content.form-control(ng-model='message', style='min-height:100px')
+        .form-group.pull-right
+          a.btn.btn-link(href='#/')
+            | 150 bài đăng nữa
+          a.btn.btn-default(href='#/')
+            | Hủy
+          button.btn.btn-success(type='submit')
+            | Tôi có quyền
+
+
+  .col-md-3

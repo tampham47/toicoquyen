@@ -2,13 +2,17 @@
 
 Post = require '../business/post'
 Moment = require 'moment'
+Facebook = require 'facebook-api'
 
 create = (req, res) ->
   model = req.body
-  console.log model
+  fb = new Facebook.user(req.user.facebook.accessToken)
 
+  console.log 'create'
   Post.create(model).then (data)->
-    res.send {data: data}
+    fb.me.feed.write data.message, (data) ->
+      console.log('POST DONE', data)
+      res.send {data: data}
   , (err) ->
     res.send {err: err}
 
